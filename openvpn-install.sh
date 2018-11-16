@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # GhostiFi Secure OpenVPN server installer for Debian, Ubuntu, CentOS, Fedora and Arch Linux
-# Forked from https://github.com/angristan/openvpn-install
+# Forked from https://github.com/angristan/openvpn-install 
 
 function isRoot () {
 	if [ "$EUID" -ne 0 ]; then
