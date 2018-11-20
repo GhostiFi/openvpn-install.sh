@@ -913,6 +913,10 @@ WantedBy=multi-user.target" > /etc/systemd/system/iptables-openvpn.service
 	echo "remote $IP $PORT
 dev tun
 resolv-retry infinite
+# Ping every 3 seconds, if no response after 10, restart OpenVPN
+# This forces the client to reconnect to new GhostiFi server IP after a rebuild -rchase
+ping 3
+ping-restart 10
 nobind
 persist-key
 persist-tun
