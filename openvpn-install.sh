@@ -908,6 +908,8 @@ WantedBy=multi-user.target" > /etc/systemd/system/iptables-openvpn.service
 	elif [[ "$PROTOCOL" = 'tcp' ]]; then
 		echo "proto tcp-client" >> /etc/openvpn/client-template.txt
 	fi
+	# Added by rchase, use hostname instead of public IP for OpenVPN client config
+	IP=$HOSTNAME
 	echo "remote $IP $PORT
 dev tun
 resolv-retry infinite
