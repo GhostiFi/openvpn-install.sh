@@ -244,7 +244,7 @@ function installQuestions () {
 		;;
 		2)
 			until [[ "$PORT" =~ ^[0-9]+$ ]] && [ "$PORT" -ge 1 ] && [ "$PORT" -le 65535 ]; do
-				PORT=443
+				PORT=993
 			done
 		;;
 		3)
