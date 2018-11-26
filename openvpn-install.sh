@@ -244,7 +244,7 @@ function installQuestions () {
 		;;
 		2)
 			until [[ "$PORT" =~ ^[0-9]+$ ]] && [ "$PORT" -ge 1 ] && [ "$PORT" -le 65535 ]; do
-				PORT="993"
+				PORT=993
 			done
 		;;
 		3)
@@ -678,7 +678,7 @@ user nobody
 group $NOGROUP
 persist-key
 persist-tun
-keepalive 3 10
+keepalive 10 120
 topology subnet
 server 10.8.0.0 255.255.255.0
 ifconfig-pool-persist ipp.txt" >> /etc/openvpn/server.conf
@@ -913,10 +913,6 @@ WantedBy=multi-user.target" > /etc/systemd/system/iptables-openvpn.service
 	echo "remote $IP $PORT
 dev tun
 resolv-retry infinite
-# Ping every 3 seconds, if no response after 10, restart OpenVPN
-# This forces the client to reconnect to new GhostiFi server IP after a rebuild -rchase
-ping 3
-ping-restart 10
 nobind
 persist-key
 persist-tun
