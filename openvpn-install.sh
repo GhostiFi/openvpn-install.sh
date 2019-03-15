@@ -244,7 +244,7 @@ function installQuestions () {
 		;;
 		2)
 			until [[ "$PORT" =~ ^[0-9]+$ ]] && [ "$PORT" -ge 1 ] && [ "$PORT" -le 65535 ]; do
-				PORT=443
+				PORT=993
 			done
 		;;
 		3)
@@ -259,7 +259,7 @@ function installQuestions () {
 	echo "   1) UDP"
 	echo "   2) TCP"
 	until [[ "$PROTOCOL_CHOICE" =~ ^[1-2]$ ]]; do
-		PROTOCOL_CHOICE=2
+		PROTOCOL_CHOICE=1
 	done
 	case $PROTOCOL_CHOICE in
 		1)
