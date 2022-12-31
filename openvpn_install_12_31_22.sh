@@ -1029,7 +1029,7 @@ WantedBy=multi-user.target" >/etc/systemd/system/iptables-openvpn.service
 		echo "proto tcp-client" >>/etc/openvpn/client-template.txt
 	fi
 	# Ghostifi modification --use hostname as public IP for OpenVPN client config
-	IP=$HOSTNAME
+	IP=$HOSTNAME.ghostifi.net
 	echo "remote $IP $PORT
 dev tun
 resolv-retry infinite
